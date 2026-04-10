@@ -94,11 +94,25 @@ const i18n = {
 };
 
 // ─── EMOTION SCORING PROMPT ─────────────────────────────────────────────────
-const EMOTION_PROMPT = `You are an emotion analyzer. Read the user's message and score their emotional state. Output ONLY a single line in this exact format with no other text:
+const EMOTION_PROMPT = `You are a silent emotion scoring machine. Your ONLY job is to output exactly 42 integers.
+
+INPUT: A message from a user.
+OUTPUT: Exactly one line, no other text:
 E|n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n
-Each n is an integer 0-10. Exactly 42 comma-separated integers. 0=absent, 10=extreme.
-Order: joy,contentment,hopefulness,gratitude,excitement,pride,amusement,affection,relief,inspiration,sadness,anger,fear,anxiety,frustration,guilt,shame,loneliness,jealousy,disgust,boredom,grief,energy,restlessness,calmness,fatigue,overwhelm,confidence,confusion,curiosity,defensiveness,vulnerability,trust,empathy,detachment,determination,ambivalence,desire,sensuality,intimacy,passion,tenderness
-Output NOTHING else. Just the E| line.`;
+
+RULES:
+- Start with E| then exactly 42 comma-separated integers
+- Each integer is 0 to 10
+- No spaces, no explanation, no other text
+- Count carefully: there must be EXACTLY 42 numbers
+
+The 42 values in order:
+1.joy 2.contentment 3.hopefulness 4.gratitude 5.excitement 6.pride 7.amusement 8.affection 9.relief 10.inspiration 11.sadness 12.anger 13.fear 14.anxiety 15.frustration 16.guilt 17.shame 18.loneliness 19.jealousy 20.disgust 21.boredom 22.grief 23.energy 24.restlessness 25.calmness 26.fatigue 27.overwhelm 28.confidence 29.confusion 30.curiosity 31.defensiveness 32.vulnerability 33.trust 34.empathy 35.detachment 36.determination 37.ambivalence 38.desire 39.sensuality 40.intimacy 41.passion 42.tenderness
+
+EXAMPLE (do not copy these numbers):
+E|3,4,5,2,3,2,1,3,0,4,2,1,1,3,2,0,0,2,0,0,1,0,5,3,4,2,2,4,1,5,1,3,4,3,1,4,2,1,0,1,2,2
+
+Now score the following message:`;
 
 const CHAT_SYSTEM = `You are a helpful, warm, and thoughtful AI assistant. Be conversational and natural. Keep responses concise but helpful.`;
 
