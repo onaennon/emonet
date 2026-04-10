@@ -643,8 +643,8 @@ export default function EmoNet() {
     chat.messages = [...chat.messages, { role: "assistant", text: reply }];
 
     // ── CALL 2: Silent emotion read (last 2 messages for context) ──
-    const recentMsgs = chat.messages.slice(-2).map(m => ({ role: m.role, text: m.text }));
-    const emoReply = await callEmotion(recentMsgs);
+    const userMsgs = chat.messages.filter(m => m.role === "user").slice(-2).map(m => ({ role: m.role, text: m.text }));
+    const emoReply = await callEmotion(userMsgs);
 
     const parsed = parseEmoString(emoReply);
     if (parsed) {
