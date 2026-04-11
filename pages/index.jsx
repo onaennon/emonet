@@ -713,11 +713,12 @@ export default function EmoNet() {
       flex: 1, overflowY: "auto", padding: "12px 16px", display: "flex",
       flexDirection: "column", gap: 8, WebkitOverflowScrolling: "touch"
     },
-    inputBar: {
-      display: "flex", gap: 8, padding: "10px 16px 20px 16px",
-      borderTop: "1px solid #151520", background: "#08080e", flexShrink: 0,
-      alignItems: "flex-end"
-    },
+inputBar: {
+  display: "flex", gap: 8, padding: "10px 16px 20px 16px",
+  borderTop: "1px solid #151520", background: "#08080e",
+  alignItems: "flex-end",
+  position: "sticky", bottom: 0, zIndex: 10, flexShrink: 0
+},
     input: {
       flex: 1, padding: "10px 14px", background: "#12121e", border: "1px solid #222",
       borderRadius: 16, color: "#ececf1", fontSize: 15, outline: "none",
