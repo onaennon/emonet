@@ -696,7 +696,7 @@ export default function EmoNet() {
   // ═════════════════════════════════════════════════════════════════════════
   const S = {
     app: {
-      height: "100vh", width: "100vw", display: "flex", flexDirection: "column",
+      height: "100dvh", width: "100vw", display: "flex", flexDirection: "column",
       background: "#08080e", color: "#ececf1", fontFamily: "'Nunito', 'Noto Sans TC', sans-serif",
       overflow: "hidden", position: "relative"
     },
