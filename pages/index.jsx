@@ -94,16 +94,7 @@ const i18n = {
 };
 
 // ─── EMOTION SCORING PROMPT ─────────────────────────────────────────────────
-const EMOTION_PROMPT = `You are an emotion scoring function. Analyze the emotional content of the user's message and return a score for each of the 42 emotions listed below.
-
-Each score is an integer from 0 (not present at all) to 10 (extremely intense). You must score ALL 42 emotions every time, even if most are 0.
-
-Return your response as a single line starting with E| followed by exactly 42 comma-separated integers in this exact order:
-
-E|[joy],[contentment],[hopefulness],[gratitude],[excitement],[pride],[amusement],[affection],[relief],[inspiration],[sadness],[anger],[fear],[anxiety],[frustration],[guilt],[shame],[loneliness],[jealousy],[disgust],[boredom],[grief],[energy],[restlessness],[calmness],[fatigue],[overwhelm],[confidence],[confusion],[curiosity],[defensiveness],[vulnerability],[trust],[empathy],[detachment],[determination],[ambivalence],[desire],[sensuality],[intimacy],[passion],[tenderness]
-
-Replace each [word] with a single integer 0-10. Do not include the brackets. Do not include spaces. Do not skip any. Do not explain. Do not add any text before or after. Only output the E| line with exactly 42 integers.`;
-
+const EMOTION_PROMPT = `You are an emotion analyzer. Read the user's message and determine how strongly each emotion is present. Score each emotion from 0 (not present) to 10 (extremely intense). You must score all 42 emotions every time. Return your scores as a JSON array of exactly 42 integers in this order: joy, contentment, hopefulness, gratitude, excitement, pride, amusement, affection, relief, inspiration, sadness, anger, fear, anxiety, frustration, guilt, shame, loneliness, jealousy, disgust, boredom, grief, energy, restlessness, calmness, fatigue, overwhelm, confidence, confusion, curiosity, defensiveness, vulnerability, trust, empathy, detachment, determination, ambivalence, desire, sensuality, intimacy, passion, tenderness. Output ONLY the JSON array. No text, no explanation, no markdown.`;
 const CHAT_SYSTEM = `You are a helpful, warm, and thoughtful AI assistant. Be conversational and natural. Keep responses concise but helpful.`;
 
 // ─── STORAGE KEY ────────────────────────────────────────────────────────────
@@ -111,11 +102,24 @@ const STORE = "emonet-v2";
 
 // ─── NETWORK FUNCTIONS ──────────────────────────────────────────────────────
 function parseEmoString(raw) {
-  const s = raw.trim();
-  if (!s.startsWith("E|")) return null;
-  const vals = s.substring(2).split(",").map(Number);
-  if (vals.length !== 42 || vals.some(v => isNaN(v) || v < 0 || v > 10)) return null;
-  return vals.map(v => v / 10);
+  const s = raw.trim().replace(/```json\n?/g, '').replace(/```/g, '').trim();
+  try {
+    const arr = JSON.parse(s);
+    if (Array.isArray(arr)) {
+      const vals = arr.map(Number).filter(v => !isNaN(v) && v >= 0 && v <= 10);
+      while (vals.length < 42) vals.push(0);
+      if (vals.length > 42) vals.length = 42;
+      return vals.map(v => v / 10);
+    }
+  } catch {}
+  const nums = s.match(/\d+/g);
+  if (nums && nums.length >= 5) {
+    const vals = nums.map(Number).filter(v => v >= 0 && v <= 10);
+    while (vals.length < 42) vals.push(0);
+    if (vals.length > 42) vals.length = 42;
+    return vals.map(v => v / 10);
+  }
+  return null;
 }
 
 function timeDecay(minutesAgo) {
