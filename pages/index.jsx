@@ -103,6 +103,7 @@ Return your response as a single line starting with E| followed by exactly 42 co
 E|[joy],[contentment],[hopefulness],[gratitude],[excitement],[pride],[amusement],[affection],[relief],[inspiration],[sadness],[anger],[fear],[anxiety],[frustration],[guilt],[shame],[loneliness],[jealousy],[disgust],[boredom],[grief],[energy],[restlessness],[calmness],[fatigue],[overwhelm],[confidence],[confusion],[curiosity],[defensiveness],[vulnerability],[trust],[empathy],[detachment],[determination],[ambivalence],[desire],[sensuality],[intimacy],[passion],[tenderness]
 
 Replace each [word] with a single integer 0-10. Do not include the brackets. Do not include spaces. Do not skip any. Do not explain. Do not add any text before or after. Only output the E| line with exactly 42 integers.`;
+
 // ─── STORAGE KEY ────────────────────────────────────────────────────────────
 const STORE = "emonet-v2";
 
