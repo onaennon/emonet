@@ -23,8 +23,7 @@ export default async function handler(req, res) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         contents,
-        generationConfig: { maxOutputTokens: 2000, temperature: 0.1 },
-        thinkingConfig: { thinkingLevel: "MINIMAL" }
+        generationConfig: { maxOutputTokens: 2000, temperature: 0.1 }
       })
     });
 
