@@ -104,6 +104,8 @@ E|[joy],[contentment],[hopefulness],[gratitude],[excitement],[pride],[amusement]
 
 Replace each [word] with a single integer 0-10. Do not include the brackets. Do not include spaces. Do not skip any. Do not explain. Do not add any text before or after. Only output the E| line with exactly 42 integers.`;
 
+const CHAT_SYSTEM = `You are a helpful, warm, and thoughtful AI assistant. Be conversational and natural. Keep responses concise but helpful.`;
+
 // ─── STORAGE KEY ────────────────────────────────────────────────────────────
 const STORE = "emonet-v2";
 
