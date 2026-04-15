@@ -228,7 +228,8 @@ const i18n = {
       "EMOTION-AWARE AI — Found in the menu. When turned on, the AI receives a brief summary of your current mood, predicted trajectory, and any spikes. It uses this to subtly adjust its tone — warmer when you're declining, matching energy when you're up, gentle when overwhelmed. The adjustment is weighted by confidence, so early on with little data it barely adjusts. The AI never mentions that it knows your emotional state.",
       "PRIVACY — All emotional data, neural network weights, chat history, and settings are stored only on your device in browser storage. Nothing is sent to any server. The only exception is when Emotion-Aware AI is enabled — in that case, a brief mood summary (not raw scores) is included in the AI prompt. Clearing your browser data will erase all history and reset the networks.",
       "DEVIATION — The sigma (σ) value shown on the status page measures how unusual your current emotional state is compared to your personal baseline. Higher numbers mean you're further from your typical range. The threshold for flagging extreme events adjusts over time as the system learns what's normal for you."
-    ],
+    ]
+     },
   zh:{newChat:"新對話",chats:"對話",settings:"設定",del:"刪除",delConfirm:"確定刪除？",yes:"是",no:"否",cancel:"取消",
     lang:"語言",emotionFb:"情緒感知AI",emotionFbDesc:"AI根據情緒微調語氣。",privacy:"資料保存在裝置上。",
     aboutDot:"關於情緒點",aboutTitle:"情緒點",exp:"實驗性",aboutText:"實驗性功能。顏色代表情緒類別。",
@@ -250,9 +251,10 @@ const i18n = {
       "極端事件 — 偏離正常範圍的情緒讀數會被記錄和分群，顯示模式。",
       "情緒感知AI — 啟用後AI會根據情緒微調語氣。AI不會提及它知道您的情緒狀態。",
       "隱私 — 所有資料保存在裝置上。清除瀏覽器資料會重置所有內容。",
-      "偏差 — σ值衡量您當前情緒與個人基線的差異程度。",
-    ]}
-},
+      "偏差 — σ值衡量您當前情緒與個人基線的差異程度。"
+    ]
+  }
+};
 
 const SK = "emonet-v3";
 
