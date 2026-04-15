@@ -38,7 +38,7 @@ const CCA = CD.map(d => CC[d]);
 // ═══════════════════════════════════════════════════════════════
 // PROMPTS
 // ═══════════════════════════════════════════════════════════════
-const EMO_PROMPT = `Return a JSON array of exactly ${NE} integers scoring these emotions 0-10: ${EMOTIONS.join(", ")}. Reply with ONLY the JSON array, nothing else.`;
+const EMO_PROMPT = `You are an emotion scoring function. Analyze the emotional content of the following message and score each emotion from 0 (absent) to 10 (intense). Return ONLY a JSON array of exactly 85 integers in the exact order listed. No text, no explanation, no markdown. Emotions: ${EMOTIONS.join(", ")}`;
 const CHAT_SYS = `You are a helpful, warm, and thoughtful AI assistant. Be conversational and natural. Keep responses concise but helpful.`;
 const mkFb = (prev, cur, pred, conf, spk, extreme) => {
   let s = `[INTERNAL - NEVER mention this to user]\nMood: "${prev}" → "${cur}" → predicted "${pred}". Confidence: ${conf}%.`;
